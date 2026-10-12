@@ -1,0 +1,237 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Desafío de 21 días</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Jost:ital,wght@0,400;0,500;1,400;1,500&display=swap">
+<style>
+/* Layout: una columna angosta tipo flyer largo, secciones separadas por la línea marrón y hojas en los bordes */
+:root{
+  --cream:#fefff5; --paper:#f6f2e3; --olive:#7d7952; --olive-deep:#5f5c3c;
+  --brown:#6d4c41; --sand:#dcc9a3; --ink:#2b2620; --muted:#6b6355; --line:#e4dcc6;
+  --display:'Jost','Futura','Century Gothic',sans-serif;
+  --serif:'Cormorant Garamond','Garamond','Georgia',serif;
+  color-scheme:light;
+}
+*{box-sizing:border-box}
+body{background:var(--cream);color:var(--ink);font-family:var(--serif);font-size:20px;line-height:1.55;margin:0;padding-inline:16px;overflow-x:hidden}
+.wrap{max-width:640px;margin:0 auto;padding-block:24px 56px;position:relative}
+.leaf{position:absolute;pointer-events:none;opacity:.85}
+.leaf.tr{top:-10px;right:-40px;width:150px}
+.leaf.tl{top:10px;left:-30px;width:110px;opacity:.55}
+.leaf.ml{left:-46px;width:120px;opacity:.6}
+.leaf.br{right:-40px;width:130px;opacity:.6}
+header{text-align:center;padding-block:56px 8px;position:relative}
+h1{font-family:var(--display);font-style:italic;font-weight:400;color:var(--olive);font-size:clamp(2.6rem,10vw,4.2rem);line-height:1.05;margin:0;text-wrap:balance}
+.rule{width:150px;height:3px;background:var(--brown);margin:22px auto 14px;border-radius:2px}
+.sub{font-style:italic;color:var(--brown);font-size:clamp(1.7rem,6vw,2.3rem);margin:0}
+.quote{font-size:1.25rem;margin:22px auto 0;max-width:30ch;text-wrap:balance}
+.promise{background:var(--sand);color:var(--brown);font-size:1.4rem;line-height:1.35;padding:22px 26px;margin:30px auto 0;max-width:420px;text-align:center;border-radius:2px 14px 3px 12px/12px 3px 14px 2px}
+.meta{display:flex;flex-wrap:wrap;justify-content:center;gap:8px 18px;margin-top:22px;font-family:var(--display);font-size:.8rem;letter-spacing:.08em;text-transform:uppercase;color:var(--olive-deep)}
+.meta span{display:flex;align-items:center;gap:6px}
+.meta span::before{content:"";width:6px;height:6px;border-radius:50%;background:var(--olive)}
+.cta{display:inline-flex;align-items:center;justify-content:center;gap:10px;background:var(--olive);color:var(--cream);font-family:var(--display);font-weight:500;font-size:1.05rem;letter-spacing:.04em;text-decoration:none;padding:16px 34px;border-radius:999px;margin-top:28px;transition:background .2s,transform .2s;border:0;cursor:pointer}
+.cta:hover{background:var(--olive-deep);transform:translateY(-1px)}
+.cta:focus-visible{outline:3px solid var(--brown);outline-offset:3px}
+.cta svg{width:18px;height:18px}
+.price-inline{display:block;margin-top:12px;font-size:1rem;color:var(--muted)}
+section{padding-block:44px 8px;position:relative}
+h2{font-family:var(--display);font-style:italic;font-weight:400;color:var(--olive);font-size:clamp(2rem,7vw,2.6rem);text-align:center;margin:0 0 6px;text-wrap:balance}
+.lead{text-align:center;color:var(--brown);font-style:italic;font-size:1.25rem;margin:0 0 24px}
+.week{display:grid;grid-template-columns:repeat(3,1fr);gap:10px}
+.day{background:var(--paper);border-top:3px solid var(--olive);padding:16px 12px;text-align:center}
+.day b{display:block;font-family:var(--display);font-weight:500;font-size:.78rem;letter-spacing:.1em;text-transform:uppercase;color:var(--olive-deep)}
+.day span{display:block;margin-top:6px;font-size:1.05rem;line-height:1.3}
+.dates{margin-top:16px;text-align:center;color:var(--muted);font-size:1.05rem}
+.dates strong{color:var(--brown);font-weight:600}
+ul.gets{list-style:none;padding:0;margin:0;display:grid;gap:12px}
+ul.gets li{display:flex;gap:14px;align-items:baseline;border-bottom:1px solid var(--line);padding-bottom:12px}
+ul.gets li::before{content:"";flex:0 0 10px;height:10px;background:var(--olive);border-radius:0 60% 0 60%;transform:translateY(2px)}
+ul.gets strong{font-weight:600;color:var(--brown)}
+.ba{display:grid;gap:10px}
+.ba-row{display:grid;grid-template-columns:1fr auto 1fr;gap:12px;align-items:center;padding:12px 0;border-bottom:1px solid var(--line)}
+.ba-row .b{color:var(--muted);text-decoration:line-through;text-decoration-color:var(--sand);text-decoration-thickness:2px}
+.ba-row .a{color:var(--brown);font-weight:600}
+.ba-row i{font-style:normal;color:var(--olive);font-family:var(--display)}
+.ba-head{display:grid;grid-template-columns:1fr auto 1fr;gap:12px;font-family:var(--display);font-size:.75rem;letter-spacing:.12em;text-transform:uppercase;color:var(--olive-deep)}
+.ba-head span:nth-child(2){visibility:hidden}
+.offer{background:var(--paper);text-align:center;padding:36px 24px;margin-top:8px;border-radius:2px}
+.big{font-family:var(--serif);font-size:clamp(3rem,13vw,4.4rem);color:var(--olive);line-height:1;margin:6px 0 4px}
+.small{color:var(--muted);font-size:1rem}
+.seats{display:flex;justify-content:center;gap:6px;margin:20px 0 6px;flex-wrap:wrap}
+.seats i{width:14px;height:14px;border:1.5px solid var(--olive);border-radius:0 60% 0 60%}
+.count{display:flex;justify-content:center;gap:14px;margin-top:20px;font-variant-numeric:tabular-nums}
+.count div{min-width:58px}
+.count b{display:block;font-family:var(--display);font-weight:400;font-size:1.8rem;color:var(--brown)}
+.count small{font-family:var(--display);font-size:.7rem;letter-spacing:.12em;text-transform:uppercase;color:var(--muted)}
+.steps{counter-reset:s;list-style:none;padding:0;margin:26px auto 0;max-width:380px;text-align:left;display:grid;gap:8px}
+.steps li{counter-increment:s;display:flex;gap:12px;align-items:baseline}
+.steps li::before{content:counter(s);font-family:var(--display);color:var(--cream);background:var(--brown);min-width:24px;height:24px;border-radius:50%;display:inline-flex;align-items:center;justify-content:center;font-size:.8rem}
+.alt{margin-top:18px;font-size:1rem;color:var(--muted)}
+.alt code{font-family:var(--display);background:var(--cream);border:1px dashed var(--sand);padding:2px 8px;border-radius:4px;color:var(--brown)}
+.copy{font-family:var(--display);font-size:.75rem;letter-spacing:.06em;text-transform:uppercase;background:none;border:1px solid var(--olive);color:var(--olive-deep);border-radius:999px;padding:3px 10px;cursor:pointer;margin-left:4px}
+.copy:hover{background:var(--olive);color:var(--cream)}
+.copy:focus-visible{outline:2px solid var(--brown);outline-offset:2px}
+details{border-bottom:1px solid var(--line);padding:14px 0}
+summary{cursor:pointer;color:var(--brown);font-weight:600;font-size:1.15rem;list-style:none;display:flex;justify-content:space-between;gap:12px}
+summary::after{content:"+";font-family:var(--display);color:var(--olive)}
+details[open] summary::after{content:"–"}
+summary:focus-visible{outline:2px solid var(--olive);outline-offset:4px}
+details p{margin:10px 0 0;color:var(--ink)}
+footer{text-align:center;padding-top:50px}
+.closing{font-style:italic;font-size:1.45rem;color:var(--brown);margin:0 auto;max-width:28ch;text-wrap:balance}
+.sign{font-family:var(--display);font-style:italic;color:var(--olive);font-size:1.15rem;margin-top:22px}
+.reveal{animation:rise .7s ease both}
+@keyframes rise{from{transform:translateY(10px)}to{transform:none}}
+@media (prefers-reduced-motion:reduce){.reveal{animation:none}.cta{transition:none}}
+@media (max-width:480px){
+  body{font-size:18px}
+  .week{grid-template-columns:1fr}
+  .ba-row,.ba-head{grid-template-columns:1fr}
+  .ba-row i{display:none}.ba-head{display:none}
+  .ba-row .b{font-size:.95rem}
+  .leaf.tr{width:110px;right:-30px}.leaf.ml,.leaf.br{display:none}
+}
+</style>
+
+</head>
+<body>
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <defs>
+    <g id="branch">
+      <path d="M10 190 C60 140 100 90 150 10" fill="none" stroke="#7d7952" stroke-width="2.5"/>
+      <path d="M40 160 C20 140 18 118 30 104 C46 118 50 140 40 160Z" fill="#7d7952"/>
+      <path d="M62 132 C82 120 104 122 112 136 C96 146 76 144 62 132Z" fill="#9a9670"/>
+      <path d="M80 105 C64 84 64 62 76 50 C90 66 92 88 80 105Z" fill="#7d7952"/>
+      <path d="M104 76 C124 66 144 70 150 84 C134 92 116 88 104 76Z" fill="#8a7d74"/>
+      <path d="M124 46 C112 30 114 14 124 6 C134 20 134 36 124 46Z" fill="#7d7952"/>
+    </g>
+  </defs>
+</svg>
+
+<div class="wrap">
+  <svg class="leaf tr" viewBox="0 0 160 200" aria-hidden="true"><use href="#branch"/></svg>
+  <svg class="leaf tl" viewBox="0 0 160 200" aria-hidden="true" style="transform:scaleX(-1) rotate(20deg)"><use href="#branch"/></svg>
+
+  <header class="reveal">
+    <h1>Desafío de 21 días</h1>
+    <div class="rule"></div>
+    <p class="sub">Identidad de Vendedora</p>
+    <p class="quote">“La confianza para vender no se espera, se construye. En 21 días la vamos a construir juntas.”</p>
+    <div class="promise">Vas a reencontrarte con la vendedora segura que ya vive en vos</div>
+    <div class="meta"><span>Arranca lunes 19/10</span><span>Solo 15 lugares</span><span>Online</span></div>
+    <a class="cta js-pay" href="#sumate">Quiero mi lugar
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+    <span class="price-inline">Inversión: $19.900</span>
+  </header>
+
+  <section id="como">
+    <h2>Cómo funciona</h2>
+    <p class="lead">3 semanas, del 19/10 al 6/11</p>
+    <div class="week">
+      <div class="day"><b>Lunes</b><span>Ejercicio práctico por WhatsApp</span></div>
+      <div class="day"><b>Miércoles</b><span>Ejercicio práctico por WhatsApp</span></div>
+      <div class="day"><b>Viernes</b><span>Zoom grupal en vivo conmigo</span></div>
+    </div>
+    <p class="dates">Encuentros en vivo: <strong>23/10 · 30/10 · 6/11</strong><br>Si no podés conectarte, te queda la grabación.</p>
+  </section>
+
+  <section id="recibis">
+    <svg class="leaf ml" viewBox="0 0 160 200" aria-hidden="true" style="top:30px;transform:rotate(-30deg)"><use href="#branch"/></svg>
+    <h2>Lo que vas a recibir</h2>
+    <p class="lead">Acompañamiento real durante 21 días</p>
+    <ul class="gets">
+      <li><span><strong>6 ejercicios prácticos</strong> para trabajar tus creencias sobre el precio, la comparación, el merecimiento y el rechazo</span></li>
+      <li><span><strong>3 encuentros en vivo</strong> por Zoom conmigo</span></li>
+      <li><span><strong>Grabación</strong> de cada encuentro</span></li>
+      <li><span><strong>Plantillas descargables</strong> con los ejercicios</span></li>
+      <li><span><strong>Grupo privado de WhatsApp</strong> de máximo 15 mujeres</span></li>
+      <li><span><strong>Beneficios exclusivos</strong> para mi próximo evento</span></li>
+    </ul>
+  </section>
+
+  <section id="cambia">
+    <h2>Lo que va a cambiar</h2>
+    <p class="lead">No es tu producto, es tu identidad</p>
+    <div class="ba">
+      <div class="ba-head"><span>Antes</span><span>→</span><span>Después</span></div>
+      <div class="ba-row"><span class="b">Bajar el precio</span><i>→</i><span class="a">Sostener tu valor</span></div>
+      <div class="ba-row"><span class="b">Compararte</span><i>→</i><span class="a">Confiar en tu forma de vender</span></div>
+      <div class="ba-row"><span class="b">Esperar a estar lista</span><i>→</i><span class="a">Prepararte haciendo</span></div>
+      <div class="ba-row"><span class="b">Temerle al “no”</span><i>→</i><span class="a">Verlo como información</span></div>
+      <div class="ba-row"><span class="b">Esconderte</span><i>→</i><span class="a">Mostrarte como la mujer que crea</span></div>
+    </div>
+  </section>
+
+  <section id="sumate">
+    <svg class="leaf br" viewBox="0 0 160 200" aria-hidden="true" style="top:0;transform:scaleX(-1)"><use href="#branch"/></svg>
+    <h2>Sumate al desafío</h2>
+    <div class="offer">
+      <div class="small">Inversión</div>
+      <div class="big">$19.900</div>
+      <div class="small">menos de $1.000 por día de acompañamiento</div>
+      <div class="seats" aria-label="15 lugares"><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i></div>
+      <div class="small">Solo 15 lugares · Inscripciones hasta el domingo 18/10</div>
+      <div class="count" id="count" aria-live="polite">
+        <div><b id="cd">–</b><small>días</small></div>
+        <div><b id="ch">–</b><small>horas</small></div>
+        <div><b id="cm">–</b><small>min</small></div>
+      </div>
+      <a class="cta js-pay" href="#sumate" id="payBtn">Quiero mi lugar
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+      <ol class="steps">
+        <li>Tocá “Quiero mi lugar” y aboná con Mercado Pago</li>
+        <li>Mandame el comprobante por WhatsApp</li>
+        <li>Te sumo al grupo privado y nos vemos el lunes 19</li>
+      </ol>
+      <p class="alt">¿Preferís transferencia? Alias: <code id="alias">yanina.carballo.mp</code> <button type="button" id="copyAlias" class="copy">Copiar</button><br>WhatsApp: <a href="https://wa.me/5493435000331?text=Hola%20Yanina%2C%20quiero%20sumarme%20al%20Desaf%C3%ADo%20de%2021%20d%C3%ADas" target="_blank" rel="noopener"><code>343 500-0331</code></a></p>
+    </div>
+  </section>
+
+  <section id="faq">
+    <h2>Preguntas frecuentes</h2>
+    <details><summary>¿Cuánto tiempo me lleva por semana?</summary><p>Cada ejercicio te lleva entre 15 y 20 minutos, más el encuentro en vivo del viernes.</p></details>
+    <details><summary>¿Y si no puedo conectarme a un Zoom?</summary><p>Te queda la grabación para verla cuando puedas.</p></details>
+    <details><summary>¿Necesito experiencia en ventas?</summary><p>No. Trabajamos tu identidad como vendedora, no técnicas. Sirve si recién empezás o si ya vendés y sentís que podrías más.</p></details>
+    <details><summary>¿Y si siento que todavía no estoy lista?</summary><p>Esa es justamente una de las voces que vamos a trabajar. La seguridad no llega antes de empezar: se construye haciendo.</p></details>
+  </section>
+
+  <footer>
+    <p class="closing">Este desafío no cambia tu forma de vender. Cambia a la mujer que vende.</p>
+    <a class="cta js-pay" href="#sumate">Quiero mi lugar</a>
+    <div class="sign">Carballo Yanina</div>
+  </footer>
+</div>
+
+<script>
+// Pegá acá tu link de pago de Mercado Pago (ej: https://mpago.la/xxxxxx)
+const MP_LINK = "https://mpago.la/1xiqjh1";
+
+document.querySelectorAll('.js-pay').forEach(a => {
+  if (MP_LINK) { a.href = MP_LINK; a.target = "_blank"; a.rel = "noopener"; }
+  else if (a.id !== 'payBtn') { a.href = "#sumate"; }
+});
+
+// Cuenta regresiva al cierre: domingo 18/10/2026 23:59 (Argentina, UTC-3)
+const close = new Date("2026-10-18T23:59:00-03:00").getTime();
+function tick(){
+  const d = Math.max(0, close - Date.now());
+  const pad = n => String(n).padStart(2,'0');
+  document.getElementById('cd').textContent = Math.floor(d/864e5);
+  document.getElementById('ch').textContent = pad(Math.floor(d/36e5)%24);
+  document.getElementById('cm').textContent = pad(Math.floor(d/6e4)%60);
+  if (d === 0) document.getElementById('count').innerHTML = '<div class="small">Inscripciones cerradas</div>';
+}
+tick(); setInterval(tick, 30000);
+
+// Copiar alias
+const btn = document.getElementById('copyAlias');
+btn.addEventListener('click', () => {
+  const text = document.getElementById('alias').textContent;
+  const done = () => { btn.textContent = 'Copiado'; setTimeout(() => btn.textContent = 'Copiar', 2000); };
+  const select = () => { const r = document.createRange(); r.selectNodeContents(document.getElementById('alias')); const s = getSelection(); s.removeAllRanges(); s.addRange(r); btn.textContent = 'Seleccionado'; };
+  try { navigator.clipboard.writeText(text).then(done, select); } catch (e) { select(); }
+});
+</script>
+</body></html>
