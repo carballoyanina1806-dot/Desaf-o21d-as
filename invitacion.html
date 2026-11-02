@@ -1,0 +1,308 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Invitación Desafío 21 Días</title>
+<meta name="description" content="Tu invitación al Desafío de 21 días Identidad de Vendedora con Yanina Carballo. Comienza el lunes 16 de noviembre.">
+<meta property="og:title" content="Tu invitación · Desafío de 21 días Identidad de Vendedora">
+<meta property="og:description" content="Este desafío no cambia tu forma de vender. Cambia a la mujer que vende. De regalo: 50% OFF en tu entrada al Emprende Fest.">
+<meta property="og:type" content="website">
+<meta name="theme-color" content="#fdfcf3">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Jost:ital,wght@0,400;0,500;0,600;1,400&family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&display=swap">
+<style>
+/* Layout: una carta-invitación larga, columna central angosta como el flyer; secciones separadas por el trazo marrón corto; barra fija para reservar. Look claro único, como la pieza impresa. */
+:root{
+  color-scheme:light;
+  --paper:#fdfcf3; --olive:#747a4b; --olive-dk:#5f6439; --brown:#6b4a40; --ink:#3a302b;
+  --sand:#e3d6b3; --sand-lt:#efe7d0; --leaf:#8c8577; --line:#e2dccb; --muted:#7d7266;
+  --sans:"Jost","Century Gothic","Avenir Next",system-ui,sans-serif;
+  --serif:"Cormorant Garamond","Garamond",Georgia,serif;
+}
+*{box-sizing:border-box}
+html{background:var(--paper)}
+body{background:var(--paper);color:var(--ink);font-family:var(--sans);font-size:17px;line-height:1.6;
+  padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px));padding-block:0 110px}
+.page{max-width:620px;margin:0 auto;position:relative;isolation:isolate}
+.sprig{position:absolute;z-index:-1;pointer-events:none}
+.sprig.tr{top:0;right:-14px;width:130px}
+.sprig.ml{top:1500px;left:-30px;width:110px;transform:scaleX(-1) rotate(160deg);opacity:.8}
+.blob{position:absolute;z-index:-1;top:28px;left:-8px;width:74px;height:58px;background:var(--sand);opacity:.6;border-radius:52% 48% 60% 40%/55% 45% 55% 45%}
+
+header{padding-block:64px 24px;text-align:center;display:flex;flex-direction:column;align-items:center;gap:18px}
+.eyebrow{font-size:12px;letter-spacing:.2em;text-transform:uppercase;color:var(--olive);font-weight:600;border:1.5px solid var(--olive);border-radius:999px;padding:6px 14px}
+h1{font-style:italic;font-weight:400;color:var(--olive);font-size:clamp(40px,11vw,60px);line-height:1.05;margin:0;text-wrap:balance}
+.rule{width:110px;height:3px;background:var(--brown);border:0;margin:2px auto}
+.sub{font-family:var(--serif);font-style:italic;color:var(--brown);font-size:clamp(28px,7.6vw,38px);line-height:1.1;margin:0}
+.thesis{font-family:var(--serif);font-size:clamp(23px,6vw,28px);line-height:1.3;margin:6px 0 0;max-width:24ch;text-wrap:balance}
+.thesis em{color:var(--olive)}
+.dates-strip{display:flex;flex-wrap:wrap;justify-content:center;gap:6px 18px;font-size:15px;color:var(--brown)}
+.dates-strip b{font-weight:600}
+
+section{padding-block:34px;display:flex;flex-direction:column;gap:16px}
+section+section{border-top:1px solid var(--line)}
+h2{font-family:var(--serif);font-weight:500;color:var(--brown);font-size:clamp(28px,7vw,34px);line-height:1.15;margin:0;text-wrap:balance}
+p{margin:0;max-width:62ch}
+.pull{font-family:var(--serif);font-style:italic;font-size:23px;line-height:1.35;color:var(--olive);border-left:3px solid var(--sand);padding-left:16px}
+
+/* semana */
+.week{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:10px}
+.day{background:#fff;border:1px solid var(--line);border-radius:14px;padding:16px 14px;display:flex;flex-direction:column;gap:6px}
+.day .d{font-size:12px;letter-spacing:.16em;text-transform:uppercase;color:var(--olive);font-weight:600}
+.day strong{font-family:var(--serif);font-weight:500;font-size:20px;line-height:1.2}
+.day span{font-size:14px;color:var(--muted)}
+.day.live{background:var(--sand-lt);border-color:var(--sand)}
+
+/* recorrido */
+.path{list-style:none;margin:0;padding:0;position:relative;display:flex;flex-direction:column;gap:0}
+.path::before{content:"";position:absolute;left:52px;top:10px;bottom:10px;width:1.5px;background:var(--sand)}
+.path li{display:grid;grid-template-columns:44px 18px minmax(0,1fr);gap:0 10px;align-items:start;padding-block:9px}
+.path .date{font-size:13px;color:var(--muted);font-variant-numeric:tabular-nums;text-align:right;padding-top:3px;line-height:1.2}
+.path .dot{width:12px;height:12px;border-radius:50%;background:var(--paper);border:2px solid var(--olive);margin-top:6px;justify-self:center;position:relative;z-index:1}
+.path li.live .dot{background:var(--olive)}
+.path .what{display:flex;flex-direction:column}
+.path .what b{font-weight:500}
+.path .what small{font-size:14px;color:var(--muted)}
+.week-label{font-size:12px;letter-spacing:.18em;text-transform:uppercase;color:var(--brown);font-weight:600;padding:12px 0 2px 72px}
+
+/* recibís */
+.gets{list-style:none;margin:0;padding:0;display:flex;flex-direction:column;gap:12px}
+.gets li{display:grid;grid-template-columns:22px minmax(0,1fr);gap:12px;align-items:start}
+.gets svg{margin-top:5px}
+.gets b{font-weight:600;color:var(--brown)}
+
+/* antes / después */
+.shift{display:flex;flex-direction:column;gap:10px}
+.shift-row{display:grid;grid-template-columns:minmax(0,1fr) 22px minmax(0,1fr);gap:10px;align-items:center}
+.before{color:var(--muted);font-size:15px}
+.after{font-family:var(--serif);font-size:19px;line-height:1.25;color:var(--ink)}
+.arrow{color:var(--olive);text-align:center}
+.shift-head{display:grid;grid-template-columns:minmax(0,1fr) 22px minmax(0,1fr);gap:10px;font-size:12px;letter-spacing:.16em;text-transform:uppercase;font-weight:600}
+.shift-head span:first-child{color:var(--muted)} .shift-head span:last-child{color:var(--olive)}
+
+.checks{list-style:none;margin:0;padding:0;display:flex;flex-direction:column;gap:8px}
+.checks li{padding-left:26px;position:relative}
+.checks li::before{content:"";position:absolute;left:4px;top:10px;width:10px;height:10px;border-radius:50% 0 50% 0;background:var(--olive);transform:rotate(-10deg)}
+
+/* inversión */
+.price{background:var(--sand);padding:30px 22px;text-align:center;display:flex;flex-direction:column;align-items:center;gap:10px;
+  clip-path:polygon(1% 3%,24% 0,52% 2%,78% 0,99% 3%,100% 30%,98% 62%,100% 97%,74% 100%,47% 98%,22% 100%,0 97%,2% 64%,0 32%)}
+.price .lbl{font-size:12px;letter-spacing:.2em;text-transform:uppercase;color:var(--brown);font-weight:600}
+.price .amount{font-family:var(--serif);font-weight:600;font-size:clamp(48px,13vw,64px);line-height:1;color:var(--ink);font-variant-numeric:tabular-nums}
+.price .per{font-size:15px;color:var(--brown);max-width:34ch}
+.spots{font-weight:600;color:var(--olive);font-size:18px}
+.btn{font:inherit;font-weight:500;letter-spacing:.02em;border:0;border-radius:999px;padding:15px 30px;cursor:pointer;text-decoration:none;display:inline-flex;align-items:center;justify-content:center;gap:8px;font-size:17px}
+.btn-main{background:var(--olive);color:var(--paper)}
+.btn-main:hover{background:var(--olive-dk)}
+.btn-soft{background:transparent;color:var(--brown);border:1px solid var(--brown)}
+.btn:focus-visible,summary:focus-visible{outline:2px solid var(--brown);outline-offset:3px}
+.fine{font-size:14px;color:var(--muted);text-align:center}
+
+.steps{list-style:none;margin:0;padding:0;counter-reset:s;display:flex;flex-direction:column;gap:14px}
+.steps li{counter-increment:s;display:grid;grid-template-columns:34px minmax(0,1fr);gap:12px;align-items:start}
+.steps li::before{content:counter(s);width:34px;height:34px;border-radius:50%;border:1.5px solid var(--olive);color:var(--olive);display:grid;place-items:center;font-weight:600}
+.steps li div{padding-top:4px}
+.copy-box{display:flex;flex-wrap:wrap;gap:8px;align-items:center;margin-top:6px}
+.copy-box code{font-family:var(--sans);font-weight:600;background:#fff;border:1px solid var(--line);border-radius:8px;padding:6px 10px;user-select:all}
+.mini{font:inherit;font-size:13px;font-weight:500;padding:6px 12px;border-radius:999px;border:1px solid var(--line);background:transparent;color:var(--brown);cursor:pointer}
+
+details{border-bottom:1px solid var(--line);padding-block:14px}
+details:first-of-type{border-top:1px solid var(--line)}
+summary{cursor:pointer;font-weight:500;list-style:none;display:flex;justify-content:space-between;gap:12px}
+summary::-webkit-details-marker{display:none}
+summary::after{content:"+";color:var(--olive);font-size:22px;line-height:1}
+details[open] summary::after{content:"–"}
+details p{margin-top:8px;color:var(--ink)}
+
+.gift{display:flex;flex-direction:column;align-items:center;gap:2px;margin-top:10px;padding:18px 28px;border:1.5px dashed var(--olive);border-radius:18px;background:#fff}
+.gift-lbl{font-size:12px;letter-spacing:.22em;text-transform:uppercase;color:var(--brown);font-weight:600}
+.gift-big{font-family:var(--serif);font-weight:600;font-size:clamp(46px,13vw,64px);line-height:1;color:var(--olive)}
+.gift-txt{font-size:17px;color:var(--ink)}
+.gift-txt b{font-weight:600;color:var(--brown)}
+.gift-inline{font-weight:600;color:var(--olive);font-size:16px;background:var(--paper);border-radius:999px;padding:6px 14px}
+.closing{text-align:center;align-items:center}
+.closing .sub{font-size:clamp(26px,7vw,34px)}
+.motto{font-family:var(--serif);font-weight:600;font-size:24px;color:var(--brown)}
+.sign{font-style:italic;color:var(--olive);font-size:24px}
+
+/* barra fija */
+.bar{position:fixed;left:0;right:0;bottom:0;z-index:20;background:color-mix(in srgb,var(--paper) 94%,transparent);backdrop-filter:blur(6px);border-top:1px solid var(--line);
+  padding:10px max(16px,env(safe-area-inset-right,0px)) calc(10px + env(safe-area-inset-bottom,0px)) max(16px,env(safe-area-inset-left,0px))}
+.bar-in{max-width:620px;margin:0 auto;display:flex;align-items:center;justify-content:space-between;gap:12px}
+.bar-txt{display:flex;flex-direction:column;line-height:1.2}
+.bar-txt b{font-family:var(--serif);font-size:22px;font-weight:600}
+.bar-txt span{font-size:13px;color:var(--muted)}
+.bar .btn{padding:12px 22px;font-size:16px}
+@media (max-width:420px){.week{grid-template-columns:1fr}.shift-row,.shift-head{grid-template-columns:minmax(0,1fr) 18px minmax(0,1fr)}.after{font-size:17px}}
+</style>
+<style>body{margin:0} [hidden]{display:none!important}</style>
+</head>
+<body>
+<div class="page">
+  <span class="blob" aria-hidden="true"></span>
+  <svg class="sprig tr" viewBox="0 0 130 140" aria-hidden="true"><path d="M126 4 C96 30 70 66 40 134" stroke="#8c8577" stroke-width="1.6" fill="none"/><g fill="#747a4b"><ellipse cx="108" cy="24" rx="16" ry="5" transform="rotate(-40 108 24)"/><ellipse cx="88" cy="48" rx="18" ry="5.5" transform="rotate(-30 88 48)"/><ellipse cx="72" cy="74" rx="17" ry="5" transform="rotate(-25 72 74)"/></g><g fill="#8c8577"><ellipse cx="96" cy="16" rx="12" ry="4" transform="rotate(-70 96 16)"/><ellipse cx="76" cy="40" rx="14" ry="4.5" transform="rotate(-75 76 40)"/><ellipse cx="60" cy="68" rx="13" ry="4" transform="rotate(-80 60 68)"/></g></svg>
+  <svg class="sprig ml" viewBox="0 0 130 140" aria-hidden="true"><path d="M126 4 C96 30 70 66 40 134" stroke="#8c8577" stroke-width="1.6" fill="none"/><g fill="#747a4b"><ellipse cx="108" cy="24" rx="16" ry="5" transform="rotate(-40 108 24)"/><ellipse cx="80" cy="56" rx="18" ry="5.5" transform="rotate(-30 80 56)"/></g><g fill="#e3d6b3"><ellipse cx="90" cy="30" rx="13" ry="4" transform="rotate(-75 90 30)"/><ellipse cx="66" cy="66" rx="14" ry="4.5" transform="rotate(-78 66 66)"/></g></svg>
+
+  <header>
+    <span class="eyebrow">Tu invitación</span>
+    <h1>Desafío de 21 días</h1>
+    <hr class="rule">
+    <p class="sub">Identidad de Vendedora</p>
+    <p class="thesis">Este desafío no cambia tu forma de vender. <em>Cambia a la mujer que vende.</em></p>
+    <div class="dates-strip"><span><b>Lunes 16/11</b> al <b>domingo 6/12</b></span><span>Solo 15 lugares</span></div>
+    <div class="gift"><span class="gift-lbl">De regalo</span><span class="gift-big">50% OFF</span><span class="gift-txt">en tu entrada al <b>Emprende Fest</b></span></div>
+  </header>
+
+  <section>
+    <p>Durante 21 días vamos a trabajar juntas la identidad que hoy define tus ventas: la forma en que te ves cuando ponés un precio, cuando ofrecés y cuando alguien te dice que no.</p>
+    <p class="pull">Porque no actuamos según nuestro potencial. Actuamos según la identidad que creemos tener.</p>
+  </section>
+
+  <section>
+    <h2>¿Por qué ahora?</h2>
+    <p>Porque sabés lo que tenés que hacer para vender, y aun así algo te frena. Bajás el precio antes de que te lo pidan, te comparás con otras, esperás a sentirte lista.</p>
+    <p>No te falta estrategia ni otro curso. Te falta verte de otra manera. Y esa mirada nueva no llega sola con el tiempo: se construye en la práctica, acompañada.</p>
+    <p class="pull">Cada mes que esperás, esa voz que te achica sigue decidiendo por vos.</p>
+  </section>
+
+  <section>
+    <h2>Cómo funciona</h2>
+    <p>Son 3 semanas con un ritmo pensado para que puedas sostenerlo junto a tu trabajo y tu vida.</p>
+    <div class="week">
+      <div class="day"><span class="d">Lunes</span><strong>Ejercicio de transformación</strong><span>Grupo privado de WhatsApp</span></div>
+      <div class="day"><span class="d">Miércoles</span><strong>Ejercicio de transformación</strong><span>Grupo privado de WhatsApp</span></div>
+      <div class="day live"><span class="d">Viernes</span><strong>Encuentro en vivo conmigo</strong><span>Zoom grupal</span></div>
+    </div>
+  </section>
+
+  <section>
+    <h2>Tu recorrido</h2>
+    <p>Cada ejercicio te lleva unos 20 minutos y se apoya en el anterior. Durante todo el desafío vas a llevar tu <b>Diario de evidencias</b>: el registro de cada paso que das como la vendedora que elegiste ser.</p>
+    <ol class="path">
+      <li class="week-label" aria-hidden="true" style="display:block">Semana 1 · Elegir quién querés ser</li>
+      <li><span class="date">Lun 16/11</span><span class="dot"></span><span class="what"><b>Mi objetivo de identidad</b><small>Tu foto de hoy y la vendedora que elegís ser en 21 días</small></span></li>
+      <li><span class="date">Mié 18/11</span><span class="dot"></span><span class="what"><b>Mi escalera de acciones</b><small>Pasos tan pequeños que tu cerebro no los vive como amenaza</small></span></li>
+      <li class="live"><span class="date">Vie 20/11</span><span class="dot"></span><span class="what"><b>Encuentro en vivo</b><small>Zoom grupal</small></span></li>
+      <li class="week-label" aria-hidden="true" style="display:block">Semana 2 · Repetir aunque no se vea</li>
+      <li><span class="date">Lun 23/11</span><span class="dot"></span><span class="what"><b>Mi meseta y mi acción ancla</b><small>Por qué el resultado tarda y qué repetir cada día</small></span></li>
+      <li><span class="date">Mié 25/11</span><span class="dot"></span><span class="what"><b>Mis objeciones internas</b><small>Los frenos que te ponés antes de que nadie te diga que no</small></span></li>
+      <li class="live"><span class="date">Vie 27/11</span><span class="dot"></span><span class="what"><b>Encuentro en vivo</b><small>Zoom grupal</small></span></li>
+      <li class="week-label" aria-hidden="true" style="display:block">Semana 3 · Consolidar tu nueva identidad</li>
+      <li><span class="date">Lun 30/11</span><span class="dot"></span><span class="what"><b>Mi antes y mi ahora</b><small>Tu nueva identidad, escrita con pruebas</small></span></li>
+      <li><span class="date">Mié 2/12</span><span class="dot"></span><span class="what"><b>Mi sistema para los próximos 30 días</b><small>Para que lo que construiste siga sin depender de la fuerza de voluntad</small></span></li>
+      <li class="live"><span class="date">Vie 4/12</span><span class="dot"></span><span class="what"><b>Encuentro de cierre</b><small>Zoom grupal</small></span></li>
+    </ol>
+  </section>
+
+  <section>
+    <h2>Lo que vas a recibir</h2>
+    <ul class="gets">
+      <li><svg width="16" height="16" viewBox="0 0 16 16" aria-hidden="true"><path d="M2 9 C5 3 11 2 14 2 C14 6 12 12 6 14 C5 11 4 10 2 9Z" fill="#747a4b"/></svg><div><b>6 ejercicios prácticos</b> de transformación, uno cada lunes y miércoles, para definir tu identidad de vendedora, animarte a dar pasos, sostener la acción y desarmar tus frenos internos.</div></li>
+      <li><svg width="16" height="16" viewBox="0 0 16 16" aria-hidden="true"><path d="M2 9 C5 3 11 2 14 2 C14 6 12 12 6 14 C5 11 4 10 2 9Z" fill="#747a4b"/></svg><div><b>3 encuentros grupales en vivo</b> por Zoom conmigo, para profundizar, compartir avances y resolver lo que te frena.</div></li>
+      <li><svg width="16" height="16" viewBox="0 0 16 16" aria-hidden="true"><path d="M2 9 C5 3 11 2 14 2 C14 6 12 12 6 14 C5 11 4 10 2 9Z" fill="#747a4b"/></svg><div><b>Plantillas descargables</b> con los ejercicios y tu Diario de evidencias, para volver a ellos cuando lo necesites.</div></li>
+      <li><svg width="16" height="16" viewBox="0 0 16 16" aria-hidden="true"><path d="M2 9 C5 3 11 2 14 2 C14 6 12 12 6 14 C5 11 4 10 2 9Z" fill="#747a4b"/></svg><div><b>Grupo privado de WhatsApp</b> de máximo 15 mujeres, con acompañamiento durante las 3 semanas.</div></li>
+      <li><svg width="16" height="16" viewBox="0 0 16 16" aria-hidden="true"><path d="M2 9 C5 3 11 2 14 2 C14 6 12 12 6 14 C5 11 4 10 2 9Z" fill="#747a4b"/></svg><div><b>De regalo: 50% de descuento</b> en tu entrada al Emprende Fest.</div></li>
+    </ul>
+  </section>
+
+  <section>
+    <h2>Lo que va a cambiar</h2>
+    <div class="shift">
+      <div class="shift-head"><span>Antes</span><span></span><span>Después</span></div>
+      <div class="shift-row"><span class="before">Bajás el precio antes de que te lo pidan</span><span class="arrow">→</span><span class="after">Sostenés tu precio porque reconocés el valor de lo que das</span></div>
+      <div class="shift-row"><span class="before">Te comparás y te achicás</span><span class="arrow">→</span><span class="after">Confiás en tu propia forma de vender</span></div>
+      <div class="shift-row"><span class="before">Esperás a sentirte lista para ofrecer</span><span class="arrow">→</span><span class="after">Te preparás haciendo</span></div>
+      <div class="shift-row"><span class="before">Vivís el "no" como un fracaso</span><span class="arrow">→</span><span class="after">Lo vivís como información, no como un juicio sobre vos</span></div>
+      <div class="shift-row"><span class="before">Te escondés detrás de tu producto</span><span class="arrow">→</span><span class="after">Te mostrás como la mujer que lo crea</span></div>
+      <div class="shift-row"><span class="before">Sentís que vender es insistir o molestar</span><span class="arrow">→</span><span class="after">Vendés desde el servicio y la confianza</span></div>
+    </div>
+  </section>
+
+  <section>
+    <h2>Para quién es</h2>
+    <p>Este desafío es para vos si:</p>
+    <ul class="checks">
+      <li>Tenés un emprendimiento, producto o servicio y sentís que podrías vender más</li>
+      <li>Te cuesta poner o sostener tu precio</li>
+      <li>Te comparás con otras y dudás de tu valor</li>
+      <li>Evitás ofrecer por miedo al rechazo</li>
+      <li>Sentís que "todavía no estás lista"</li>
+    </ul>
+    <p>No necesitás experiencia en ventas ni tener todo resuelto. Solo ganas de verte de otra manera.</p>
+  </section>
+
+  <section id="reservar">
+    <h2>Inversión y cupos</h2>
+    <div class="price">
+      <span class="lbl">Inversión</span>
+      <span class="amount">$39.900</span>
+      <span class="per">Unos $1.900 por día de acompañamiento durante 21 días.</span>
+      <span class="gift-inline">+ de regalo, 50% OFF en tu entrada al Emprende Fest</span>
+      <span class="spots">Solo 15 lugares</span>
+      <a class="btn btn-main js-pay" href="#reservar" target="_blank" rel="noopener">Reservar mi lugar</a>
+    </div>
+    <p class="fine">Las inscripciones cierran el <b>domingo 15 de noviembre a las 23:59</b> o cuando se completen los cupos. El lunes 16 arrancamos y el grupo se cierra con las que estén dentro.</p>
+  </section>
+
+  <section>
+    <h2>Cómo sumarte</h2>
+    <ol class="steps">
+      <li><div>Tocá <b>"Reservar mi lugar"</b> y pagá con Mercado Pago, con dinero en cuenta o tarjeta de débito. Si preferís transferencia, escribime.</div></li>
+      <li><div>Mandame el comprobante por WhatsApp.
+        <div class="copy-box"><a class="btn btn-soft js-wa" style="padding:8px 16px;font-size:15px" target="_blank" rel="noopener">Enviar comprobante</a><code id="num">343 500-0331</code><button class="mini" id="copyNum">Copiar número</button></div></div></li>
+      <li><div>Te envío el acceso al grupo privado y nos vemos el <b>lunes 16</b>.</div></li>
+    </ol>
+  </section>
+
+  <section>
+    <h2>Preguntas frecuentes</h2>
+    <div>
+      <details><summary>¿Cuánto tiempo me lleva por semana?</summary><p>Cada ejercicio te lleva entre 15 y 20 minutos, más el encuentro en vivo del viernes.</p></details>
+      <details><summary>¿Y si no puedo conectarme a un Zoom?</summary><p>Te queda la grabación para verla cuando puedas.</p></details>
+      <details><summary>¿Necesito experiencia en ventas?</summary><p>No. El desafío trabaja tu identidad como vendedora, no técnicas. Sirve tanto si recién empezás como si ya vendés y sentís que podrías más.</p></details>
+      <details><summary>¿Sirve para cualquier rubro?</summary><p>Sí. Trabajamos la forma en que te ves al vender, y eso aplica a productos, servicios o emprendimientos de cualquier tipo.</p></details>
+      <details><summary>¿Cómo puedo pagar?</summary><p>Con Mercado Pago, con dinero en cuenta o tarjeta de débito. Si preferís pagar por transferencia, escribime por WhatsApp y te paso los datos.</p></details>
+      <details><summary>¿Cómo uso el descuento del Emprende Fest?</summary><p>Al sumarte al desafío te envío tu beneficio del 50% de descuento en la entrada al Emprende Fest.</p></details>
+      <details><summary>¿Y si siento que todavía no estoy lista?</summary><p>Esa es justamente una de las voces que vamos a trabajar. La seguridad no llega antes de empezar: se construye haciendo.</p></details>
+    </div>
+  </section>
+
+  <section class="closing">
+    <h2>Te espero del otro lado</h2>
+    <p>La confianza para vender no se espera: se construye. Y es mucho más fácil construirla acompañada.</p>
+    <p class="sub">En 21 días no vas a aprender a vender. Vas a convertirte en la mujer que vende con confianza.</p>
+    <p class="motto">No es tu producto. Es tu identidad.</p>
+    <a class="btn btn-main js-pay" href="#reservar" target="_blank" rel="noopener">Reservar mi lugar</a>
+    <p class="sign">Carballo Yanina</p>
+  </section>
+</div>
+
+<div class="bar" role="region" aria-label="Reservar">
+  <div class="bar-in">
+    <div class="bar-txt"><b>$39.900</b><span>Cierra el domingo 15/11</span></div>
+    <a class="btn btn-main js-pay" href="#reservar" target="_blank" rel="noopener">Reservar mi lugar</a>
+  </div>
+</div>
+
+<script>
+// ====== CONFIGURACIÓN ======
+const MERCADO_PAGO = "https://mpago.la/1xiqjh1";
+const WHATSAPP = "5493435000331";
+
+const waText = "Hola Yanina! Ya pagué mi lugar en el Desafío Identidad de Vendedora, te paso el comprobante 🌿";
+document.querySelectorAll(".js-wa").forEach(a => a.href = "https://wa.me/"+WHATSAPP+"?text="+encodeURIComponent(waText));
+document.querySelectorAll(".js-pay").forEach(a => {
+  if (MERCADO_PAGO) { a.href = MERCADO_PAGO; }
+  else { a.href = "https://wa.me/"+WHATSAPP+"?text="+encodeURIComponent("Hola Yanina! Quiero reservar mi lugar en el Desafío Identidad de Vendedora 🌿"); }
+});
+document.getElementById("copyNum").onclick = async (e) => {
+  const b = e.currentTarget;
+  try { await navigator.clipboard.writeText("3435000331"); b.textContent = "Copiado"; }
+  catch (err) { const r = document.createRange(); r.selectNodeContents(document.getElementById("num")); const s = getSelection(); s.removeAllRanges(); s.addRange(r); b.textContent = "Seleccionado"; }
+  setTimeout(() => b.textContent = "Copiar número", 1800);
+};
+</script>
+</body>
+</html>
