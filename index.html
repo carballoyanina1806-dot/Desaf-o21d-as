@@ -2,236 +2,270 @@
 <html lang="es">
 <head>
 <meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Desafío de 21 días</title>
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Jost:ital,wght@0,400;0,500;1,400;1,500&display=swap">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Postulación Desafío 21 Días</title>
+<meta name="description" content="Postulate al Desafío de 21 días Identidad de Vendedora con Yanina Carballo. Comienza el lunes 16 de noviembre. Solo 15 lugares.">
+<meta property="og:title" content="Desafío de 21 días · Identidad de Vendedora">
+<meta property="og:description" content="La confianza para vender no se espera, se construye. Postulate: solo 15 lugares, comienza el 16/11.">
+<meta property="og:type" content="website">
+<meta name="theme-color" content="#fdfcf3">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Jost:ital,wght@0,400;0,500;0,600;1,400&family=Cormorant+Garamond:ital,wght@0,400;0,500;1,400;1,500&display=swap">
 <style>
-/* Layout: una columna angosta tipo flyer largo, secciones separadas por la línea marrón y hojas en los bordes */
+/* Layout: una "hoja" como el flyer, ramitas en las esquinas, un paso por pantalla. Look claro único, igual que la pieza impresa. */
 :root{
-  --cream:#fefff5; --paper:#f6f2e3; --olive:#7d7952; --olive-deep:#5f5c3c;
-  --brown:#6d4c41; --sand:#dcc9a3; --ink:#2b2620; --muted:#6b6355; --line:#e4dcc6;
-  --display:'Jost','Futura','Century Gothic',sans-serif;
-  --serif:'Cormorant Garamond','Garamond','Georgia',serif;
   color-scheme:light;
+  --paper:#fdfcf3;     /* fondo crema del flyer */
+  --olive:#747a4b;     /* verde oliva de los títulos */
+  --brown:#6b4a40;     /* marrón de "Identidad de Vendedora" */
+  --ink:#3a302b;       /* texto */
+  --sand:#e3d6b3;      /* trazo beige */
+  --leaf:#8c8577;      /* hoja gris */
+  --line:#e2dccb;
+  --muted:#7d7266;
+  --sans:"Jost", "Century Gothic", "Avenir Next", system-ui, sans-serif;
+  --serif:"Cormorant Garamond", "Garamond", Georgia, serif;
 }
 *{box-sizing:border-box}
-body{background:var(--cream);color:var(--ink);font-family:var(--serif);font-size:20px;line-height:1.55;margin:0;padding-inline:16px;overflow-x:hidden}
-.wrap{max-width:640px;margin:0 auto;padding-block:24px 56px;position:relative}
-.leaf{position:absolute;pointer-events:none;opacity:.85}
-.leaf.tr{top:-10px;right:-40px;width:150px}
-.leaf.tl{top:10px;left:-30px;width:110px;opacity:.55}
-.leaf.ml{left:-46px;width:120px;opacity:.6}
-.leaf.br{right:-40px;width:130px;opacity:.6}
-header{text-align:center;padding-block:56px 8px;position:relative}
-h1{font-family:var(--display);font-style:italic;font-weight:400;color:var(--olive);font-size:clamp(2.6rem,10vw,4.2rem);line-height:1.05;margin:0;text-wrap:balance}
-.rule{width:150px;height:3px;background:var(--brown);margin:22px auto 14px;border-radius:2px}
-.sub{font-style:italic;color:var(--brown);font-size:clamp(1.7rem,6vw,2.3rem);margin:0}
-.quote{font-size:1.25rem;margin:22px auto 0;max-width:30ch;text-wrap:balance}
-.promise{background:var(--sand);color:var(--brown);font-size:1.4rem;line-height:1.35;padding:22px 26px;margin:30px auto 0;max-width:420px;text-align:center;border-radius:2px 14px 3px 12px/12px 3px 14px 2px}
-.meta{display:flex;flex-wrap:wrap;justify-content:center;gap:8px 18px;margin-top:22px;font-family:var(--display);font-size:.8rem;letter-spacing:.08em;text-transform:uppercase;color:var(--olive-deep)}
-.meta span{display:flex;align-items:center;gap:6px}
-.meta span::before{content:"";width:6px;height:6px;border-radius:50%;background:var(--olive)}
-.cta{display:inline-flex;align-items:center;justify-content:center;gap:10px;background:var(--olive);color:var(--cream);font-family:var(--display);font-weight:500;font-size:1.05rem;letter-spacing:.04em;text-decoration:none;padding:16px 34px;border-radius:999px;margin-top:28px;transition:background .2s,transform .2s;border:0;cursor:pointer}
-.cta:hover{background:var(--olive-deep);transform:translateY(-1px)}
-.cta:focus-visible{outline:3px solid var(--brown);outline-offset:3px}
-.cta svg{width:18px;height:18px}
-.price-inline{display:block;margin-top:12px;font-size:1rem;color:var(--muted)}
-section{padding-block:44px 8px;position:relative}
-h2{font-family:var(--display);font-style:italic;font-weight:400;color:var(--olive);font-size:clamp(2rem,7vw,2.6rem);text-align:center;margin:0 0 6px;text-wrap:balance}
-.lead{text-align:center;color:var(--brown);font-style:italic;font-size:1.25rem;margin:0 0 24px}
-.week{display:grid;grid-template-columns:repeat(3,1fr);gap:10px}
-.day{background:var(--paper);border-top:3px solid var(--olive);padding:16px 12px;text-align:center}
-.day b{display:block;font-family:var(--display);font-weight:500;font-size:.78rem;letter-spacing:.1em;text-transform:uppercase;color:var(--olive-deep)}
-.day span{display:block;margin-top:6px;font-size:1.05rem;line-height:1.3}
-.dates{margin-top:16px;text-align:center;color:var(--muted);font-size:1.05rem}
-.dates strong{color:var(--brown);font-weight:600}
-ul.gets{list-style:none;padding:0;margin:0;display:grid;gap:12px}
-ul.gets li{display:flex;gap:14px;align-items:baseline;border-bottom:1px solid var(--line);padding-bottom:12px}
-ul.gets li::before{content:"";flex:0 0 10px;height:10px;background:var(--olive);border-radius:0 60% 0 60%;transform:translateY(2px)}
-ul.gets strong{font-weight:600;color:var(--brown)}
-.ba{display:grid;gap:10px}
-.ba-row{display:grid;grid-template-columns:1fr auto 1fr;gap:12px;align-items:center;padding:12px 0;border-bottom:1px solid var(--line)}
-.ba-row .b{color:var(--muted);text-decoration:line-through;text-decoration-color:var(--sand);text-decoration-thickness:2px}
-.ba-row .a{color:var(--brown);font-weight:600}
-.ba-row i{font-style:normal;color:var(--olive);font-family:var(--display)}
-.ba-head{display:grid;grid-template-columns:1fr auto 1fr;gap:12px;font-family:var(--display);font-size:.75rem;letter-spacing:.12em;text-transform:uppercase;color:var(--olive-deep)}
-.ba-head span:nth-child(2){visibility:hidden}
-.offer{background:var(--paper);text-align:center;padding:36px 24px;margin-top:8px;border-radius:2px}
-.big{font-family:var(--serif);font-size:clamp(3rem,13vw,4.4rem);color:var(--olive);line-height:1;margin:6px 0 4px}
-.small{color:var(--muted);font-size:1rem}
-.seats{display:flex;justify-content:center;gap:6px;margin:20px 0 6px;flex-wrap:wrap}
-.seats i{width:14px;height:14px;border:1.5px solid var(--olive);border-radius:0 60% 0 60%}
-.count{display:flex;justify-content:center;gap:14px;margin-top:20px;font-variant-numeric:tabular-nums}
-.count div{min-width:58px}
-.count b{display:block;font-family:var(--display);font-weight:400;font-size:1.8rem;color:var(--brown)}
-.count small{font-family:var(--display);font-size:.7rem;letter-spacing:.12em;text-transform:uppercase;color:var(--muted)}
-.steps{counter-reset:s;list-style:none;padding:0;margin:26px auto 0;max-width:380px;text-align:left;display:grid;gap:8px}
-.steps li{counter-increment:s;display:flex;gap:12px;align-items:baseline}
-.steps li::before{content:counter(s);font-family:var(--display);color:var(--cream);background:var(--brown);min-width:24px;height:24px;border-radius:50%;display:inline-flex;align-items:center;justify-content:center;font-size:.8rem}
-.alt{margin-top:18px;font-size:1rem;color:var(--muted)}
-.alt code{font-family:var(--display);background:var(--cream);border:1px dashed var(--sand);padding:2px 8px;border-radius:4px;color:var(--brown)}
-.copy{font-family:var(--display);font-size:.75rem;letter-spacing:.06em;text-transform:uppercase;background:none;border:1px solid var(--olive);color:var(--olive-deep);border-radius:999px;padding:3px 10px;cursor:pointer;margin-left:4px}
-.copy:hover{background:var(--olive);color:var(--cream)}
-.copy:focus-visible{outline:2px solid var(--brown);outline-offset:2px}
-details{border-bottom:1px solid var(--line);padding:14px 0}
-summary{cursor:pointer;color:var(--brown);font-weight:600;font-size:1.15rem;list-style:none;display:flex;justify-content:space-between;gap:12px}
-summary::after{content:"+";font-family:var(--display);color:var(--olive)}
-details[open] summary::after{content:"–"}
-summary:focus-visible{outline:2px solid var(--olive);outline-offset:4px}
-details p{margin:10px 0 0;color:var(--ink)}
-footer{text-align:center;padding-top:50px}
-.closing{font-style:italic;font-size:1.45rem;color:var(--brown);margin:0 auto;max-width:28ch;text-wrap:balance}
-.sign{font-family:var(--display);font-style:italic;color:var(--olive);font-size:1.15rem;margin-top:22px}
-.reveal{animation:rise .7s ease both}
-@keyframes rise{from{transform:translateY(10px)}to{transform:none}}
-@media (prefers-reduced-motion:reduce){.reveal{animation:none}.cta{transition:none}}
-@media (max-width:480px){
-  body{font-size:18px}
-  .week{grid-template-columns:1fr}
-  .ba-row,.ba-head{grid-template-columns:1fr}
-  .ba-row i{display:none}.ba-head{display:none}
-  .ba-row .b{font-size:.95rem}
-  .leaf.tr{width:110px;right:-30px}.leaf.ml,.leaf.br{display:none}
-}
-</style>
+html{background:var(--paper)}
+body{background:var(--paper);color:var(--ink);font-family:var(--sans);font-size:16px;line-height:1.55;
+  padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px));padding-block:20px 40px}
+.sheet{position:relative;max-width:560px;margin:0 auto;padding:56px 8px 70px;display:flex;flex-direction:column;gap:22px;align-items:center;text-align:center;isolation:isolate}
+.sprig{position:absolute;z-index:-1;pointer-events:none}
+.sprig.tr{top:-6px;right:-10px;width:130px}
+.sprig.bl{bottom:-4px;left:-14px;width:120px;transform:scaleX(-1) rotate(160deg)}
+.blob{position:absolute;z-index:-1;top:10px;left:-4px;width:70px;height:56px;background:var(--sand);opacity:.6;border-radius:52% 48% 60% 40%/55% 45% 55% 45%}
 
+h1{font-family:var(--sans);font-style:italic;font-weight:400;color:var(--olive);font-size:clamp(38px,11vw,58px);line-height:1.05;margin:0;text-wrap:balance}
+.rule{width:110px;height:3px;background:var(--brown);border:0;margin:4px 0 0}
+.sub{font-family:var(--serif);font-style:italic;color:var(--brown);font-size:clamp(28px,7.6vw,38px);margin:0;line-height:1.1}
+.quote{font-family:var(--serif);font-size:clamp(19px,5vw,22px);line-height:1.4;max-width:30ch;margin:0}
+.spots{font-weight:600;color:var(--olive);font-size:19px;margin:0}
+.brush{background:var(--sand);padding:18px 20px;width:100%;max-width:440px;
+  clip-path:polygon(1% 4%,24% 0,52% 3%,78% 0,99% 3%,100% 30%,98% 62%,100% 96%,74% 100%,47% 97%,22% 100%,0 97%,2% 64%,0 32%);
+  display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px 16px}
+.brush div{display:flex;flex-direction:column;gap:1px}
+.brush span{font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:var(--brown)}
+.brush strong{font-family:var(--serif);font-weight:500;font-size:20px;color:var(--ink)}
+.small-print{color:var(--brown);font-size:15px;margin:0}
+.sign{font-style:italic;color:var(--olive);font-size:20px;margin:6px 0 0}
+
+/* botones */
+.btn{font:inherit;font-weight:500;letter-spacing:.02em;border:0;border-radius:999px;padding:14px 28px;cursor:pointer;text-decoration:none;display:inline-flex;align-items:center;justify-content:center;gap:8px;font-size:16px}
+.btn-main{background:var(--olive);color:var(--paper)}
+.btn-main:hover{background:#646a3f}
+.btn-soft{background:transparent;color:var(--brown);border:1px solid var(--brown)}
+.btn:focus-visible,input:focus-visible,.opt:focus-within{outline:2px solid var(--brown);outline-offset:2px}
+
+/* formulario */
+.form{width:100%;display:flex;flex-direction:column;gap:18px;text-align:left}
+.form h2{font-family:var(--serif);font-weight:500;color:var(--brown);font-size:clamp(25px,6.4vw,31px);line-height:1.15;margin:0;text-wrap:balance;text-align:center}
+.progress{display:flex;justify-content:center;gap:8px}
+.progress i{width:34px;height:4px;border-radius:2px;background:var(--line)}
+.progress i.on{background:var(--olive)}
+.step-n{font-size:12px;letter-spacing:.16em;text-transform:uppercase;color:var(--olive);text-align:center;margin:0}
+label.f{font-weight:500;font-size:14px;color:var(--brown);display:flex;flex-direction:column;gap:6px}
+label.f em{font-style:normal;font-weight:400;color:var(--muted);font-size:13px}
+input[type=text],input[type=tel],input[type=email]{font:inherit;color:var(--ink);background:#fff;border:1px solid var(--line);border-radius:10px;padding:12px 14px;width:100%}
+.opts{display:flex;flex-direction:column;gap:10px}
+.opt{display:flex;gap:12px;align-items:flex-start;padding:14px 16px;border:1px solid var(--line);border-radius:12px;background:#fff;cursor:pointer;font-size:16px}
+.opt input{width:18px;height:18px;margin:3px 0 0;accent-color:var(--olive);flex:none}
+.opt:has(input:checked){border-color:var(--olive);background:#f1f0e1}
+.list{margin:0;padding:14px 18px 14px 34px;background:var(--sand);border-radius:12px;display:flex;flex-direction:column;gap:4px;color:var(--ink)}
+.err{color:#9a4a2f;font-size:14px;min-height:1.2em;margin:0;text-align:center}
+.nav{display:flex;gap:10px}
+.nav .btn-main{flex:1}
+
+/* resultado */
+.badge{font-size:12px;letter-spacing:.18em;text-transform:uppercase;font-weight:600;color:var(--olive);border:1.5px solid var(--olive);border-radius:999px;padding:6px 14px}
+.badge.alt{color:var(--brown);border-color:var(--brown)}
+.res-text{max-width:42ch;margin:0}
+.actions{display:flex;flex-direction:column;gap:10px;width:100%;max-width:360px}
+.note{font-size:14px;color:var(--muted);margin:0;max-width:40ch}
+@media (prefers-reduced-motion:no-preference){.screen{animation:in .35s ease both}@keyframes in{from{opacity:.4;transform:translateY(6px)}to{opacity:1;transform:none}}}
+</style>
+<style>body{margin:0} [hidden]{display:none!important} img{max-width:100%}</style>
 </head>
 <body>
-<svg width="0" height="0" style="position:absolute" aria-hidden="true">
-  <defs>
-    <g id="branch">
-      <path d="M10 190 C60 140 100 90 150 10" fill="none" stroke="#7d7952" stroke-width="2.5"/>
-      <path d="M40 160 C20 140 18 118 30 104 C46 118 50 140 40 160Z" fill="#7d7952"/>
-      <path d="M62 132 C82 120 104 122 112 136 C96 146 76 144 62 132Z" fill="#9a9670"/>
-      <path d="M80 105 C64 84 64 62 76 50 C90 66 92 88 80 105Z" fill="#7d7952"/>
-      <path d="M104 76 C124 66 144 70 150 84 C134 92 116 88 104 76Z" fill="#8a7d74"/>
-      <path d="M124 46 C112 30 114 14 124 6 C134 20 134 36 124 46Z" fill="#7d7952"/>
-    </g>
-  </defs>
-</svg>
+<main class="sheet">
+  <span class="blob" aria-hidden="true"></span>
+  <svg class="sprig tr" viewBox="0 0 130 140" aria-hidden="true">
+    <path d="M126 4 C96 30 70 66 40 134" stroke="#8c8577" stroke-width="1.6" fill="none"/>
+    <g fill="#747a4b"><ellipse cx="108" cy="24" rx="16" ry="5" transform="rotate(-40 108 24)"/><ellipse cx="88" cy="48" rx="18" ry="5.5" transform="rotate(-30 88 48)"/><ellipse cx="72" cy="74" rx="17" ry="5" transform="rotate(-25 72 74)"/></g>
+    <g fill="#8c8577"><ellipse cx="96" cy="16" rx="12" ry="4" transform="rotate(-70 96 16)"/><ellipse cx="76" cy="40" rx="14" ry="4.5" transform="rotate(-75 76 40)"/><ellipse cx="60" cy="68" rx="13" ry="4" transform="rotate(-80 60 68)"/></g>
+  </svg>
+  <svg class="sprig bl" viewBox="0 0 130 140" aria-hidden="true">
+    <path d="M126 4 C96 30 70 66 40 134" stroke="#8c8577" stroke-width="1.6" fill="none"/>
+    <g fill="#747a4b" opacity=".85"><ellipse cx="108" cy="24" rx="16" ry="5" transform="rotate(-40 108 24)"/><ellipse cx="80" cy="56" rx="18" ry="5.5" transform="rotate(-30 80 56)"/><ellipse cx="58" cy="94" rx="15" ry="5" transform="rotate(-25 58 94)"/></g>
+    <g fill="#e3d6b3"><ellipse cx="90" cy="30" rx="13" ry="4" transform="rotate(-75 90 30)"/><ellipse cx="66" cy="66" rx="14" ry="4.5" transform="rotate(-78 66 66)"/></g>
+  </svg>
 
-<div class="wrap">
-  <svg class="leaf tr" viewBox="0 0 160 200" aria-hidden="true"><use href="#branch"/></svg>
-  <svg class="leaf tl" viewBox="0 0 160 200" aria-hidden="true" style="transform:scaleX(-1) rotate(20deg)"><use href="#branch"/></svg>
-
-  <header class="reveal">
+  <!-- PORTADA -->
+  <section class="screen" id="s0" style="display:flex;flex-direction:column;align-items:center;gap:20px">
     <h1>Desafío de 21 días</h1>
-    <div class="rule"></div>
+    <hr class="rule">
     <p class="sub">Identidad de Vendedora</p>
     <p class="quote">“La confianza para vender no se espera, se construye. En 21 días la vamos a construir juntas.”</p>
-    <div class="promise">Vas a reencontrarte con la vendedora segura que ya vive en vos</div>
-    <div class="meta"><span>Arranca lunes 19/10</span><span>Solo 15 lugares</span><span>Online</span></div>
-    <a class="cta js-pay" href="#sumate">Quiero mi lugar
-      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
-    <span class="price-inline">Inversión: $19.900</span>
-  </header>
-
-  <section id="como">
-    <h2>Cómo funciona</h2>
-    <p class="lead">3 semanas, del 19/10 al 6/11</p>
-    <div class="week">
-      <div class="day"><b>Lunes</b><span>Ejercicio práctico por WhatsApp</span></div>
-      <div class="day"><b>Miércoles</b><span>Ejercicio práctico por WhatsApp</span></div>
-      <div class="day"><b>Viernes</b><span>Zoom grupal en vivo conmigo</span></div>
+    <p class="spots" id="spots">Solo 15 lugares</p>
+    <div class="brush">
+      <div><span>Comienza</span><strong>Lunes 16/11</strong></div>
+      <div><span>Termina</span><strong>Domingo 6/12</strong></div>
+      <div><span>Postulaciones</span><strong>Hasta jueves 12/11</strong></div>
+      <div><span>Te lleva</span><strong>2 minutos</strong></div>
     </div>
-    <p class="dates">Encuentros en vivo: <strong>23/10 · 30/10 · 6/11</strong><br>Si no podés conectarte, te queda la grabación.</p>
+    <p class="small-print">Ejercicios por WhatsApp lunes y miércoles · Zoom grupal en vivo conmigo los viernes</p>
+    <button class="btn btn-main" id="start">Quiero postularme</button>
+    <p class="sign">Carballo Yanina</p>
   </section>
 
-  <section id="recibis">
-    <svg class="leaf ml" viewBox="0 0 160 200" aria-hidden="true" style="top:30px;transform:rotate(-30deg)"><use href="#branch"/></svg>
-    <h2>Lo que vas a recibir</h2>
-    <p class="lead">Acompañamiento real durante 21 días</p>
-    <ul class="gets">
-      <li><span><strong>6 ejercicios prácticos</strong> para trabajar tus creencias sobre el precio, la comparación, el merecimiento y el rechazo</span></li>
-      <li><span><strong>3 encuentros en vivo</strong> por Zoom conmigo</span></li>
-      <li><span><strong>Grabación</strong> de cada encuentro</span></li>
-      <li><span><strong>Plantillas descargables</strong> con los ejercicios</span></li>
-      <li><span><strong>Grupo privado de WhatsApp</strong> de máximo 15 mujeres</span></li>
-      <li><span><strong>Beneficios exclusivos</strong> para mi próximo evento</span></li>
-    </ul>
-  </section>
+  <!-- FORMULARIO -->
+  <section class="screen form" id="form" hidden>
+    <div class="progress" aria-hidden="true"><i></i><i></i><i></i><i></i></div>
+    <p class="step-n" id="stepN">Paso 1 de 4</p>
 
-  <section id="cambia">
-    <h2>Lo que va a cambiar</h2>
-    <p class="lead">No es tu producto, es tu identidad</p>
-    <div class="ba">
-      <div class="ba-head"><span>Antes</span><span>→</span><span>Después</span></div>
-      <div class="ba-row"><span class="b">Bajar el precio</span><i>→</i><span class="a">Sostener tu valor</span></div>
-      <div class="ba-row"><span class="b">Compararte</span><i>→</i><span class="a">Confiar en tu forma de vender</span></div>
-      <div class="ba-row"><span class="b">Esperar a estar lista</span><i>→</i><span class="a">Prepararte haciendo</span></div>
-      <div class="ba-row"><span class="b">Temerle al “no”</span><i>→</i><span class="a">Verlo como información</span></div>
-      <div class="ba-row"><span class="b">Esconderte</span><i>→</i><span class="a">Mostrarte como la mujer que crea</span></div>
+    <div id="p1" style="display:flex;flex-direction:column;gap:14px">
+      <h2>Contame quién sos</h2>
+      <label class="f" for="nombre">Nombre y apellido<input type="text" id="nombre" autocomplete="name"></label>
+      <label class="f" for="whatsapp">WhatsApp <em>con código de área, ej: 343 1234567</em><input type="tel" id="whatsapp" inputmode="tel" autocomplete="tel"></label>
+      <label class="f" for="email">Email<input type="email" id="email" autocomplete="email"></label>
+      <label class="f" for="rubro">¿A qué te dedicás o qué vendés?<input type="text" id="rubro" placeholder="Ej: ropa, estética, cosmética, servicios…"></label>
     </div>
-  </section>
 
-  <section id="sumate">
-    <svg class="leaf br" viewBox="0 0 160 200" aria-hidden="true" style="top:0;transform:scaleX(-1)"><use href="#branch"/></svg>
-    <h2>Sumate al desafío</h2>
-    <div class="offer">
-      <div class="small">Inversión</div>
-      <div class="big">$19.900</div>
-      <div class="small">menos de $1.000 por día de acompañamiento</div>
-      <div class="seats" aria-label="15 lugares"><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i></div>
-      <div class="small">Solo 15 lugares · Inscripciones hasta el domingo 18/10</div>
-      <div class="count" id="count" aria-live="polite">
-        <div><b id="cd">–</b><small>días</small></div>
-        <div><b id="ch">–</b><small>horas</small></div>
-        <div><b id="cm">–</b><small>min</small></div>
+    <div id="p2" hidden style="display:flex;flex-direction:column;gap:14px">
+      <h2>Cuando tenés que decir tu precio, ¿qué te pasa?</h2>
+      <div class="opts">
+        <label class="opt"><input type="radio" name="q1" value="Lo digo con seguridad">Lo digo con seguridad</label>
+        <label class="opt"><input type="radio" name="q1" value="Dudo y lo justifico">Dudo y lo justifico</label>
+        <label class="opt"><input type="radio" name="q1" value="Bajo el precio antes de que me lo pidan">Bajo el precio antes de que me lo pidan</label>
+        <label class="opt"><input type="radio" name="q1" value="Evito decirlo">Evito decirlo</label>
       </div>
-      <a class="cta js-pay" href="#sumate" id="payBtn">Quiero mi lugar
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
-      <ol class="steps">
-        <li>Tocá “Quiero mi lugar” y aboná con Mercado Pago</li>
-        <li>Mandame el comprobante por WhatsApp</li>
-        <li>Te sumo al grupo privado y nos vemos el lunes 19</li>
-      </ol>
-      <p class="alt">¿Preferís transferencia? Alias: <code id="alias">yanina.carballo.mp</code> <button type="button" id="copyAlias" class="copy">Copiar</button><br>WhatsApp: <a href="https://wa.me/5493435000331?text=Hola%20Yanina%2C%20quiero%20sumarme%20al%20Desaf%C3%ADo%20de%2021%20d%C3%ADas" target="_blank" rel="noopener"><code>343 500-0331</code></a></p>
+    </div>
+
+    <div id="p3" hidden style="display:flex;flex-direction:column;gap:14px">
+      <h2>¿Sentís que tu negocio podría vender más, y que lo que te frena no es el producto?</h2>
+      <div class="opts">
+        <label class="opt"><input type="radio" name="q2" value="Sí, totalmente">Sí, totalmente</label>
+        <label class="opt"><input type="radio" name="q2" value="A veces">A veces</label>
+        <label class="opt"><input type="radio" name="q2" value="No">No</label>
+      </div>
+    </div>
+
+    <div id="p4" hidden style="display:flex;flex-direction:column;gap:14px">
+      <h2>¿Podés comprometerte del 16/11 al 6/12?</h2>
+      <ul class="list">
+        <li>Ejercicios por WhatsApp los lunes y miércoles</li>
+        <li>Zoom grupal los viernes 20/11, 27/11 y 4/12</li>
+      </ul>
+      <div class="opts">
+        <label class="opt"><input type="radio" name="q3" value="Sí, me comprometo">Sí, me comprometo</label>
+        <label class="opt"><input type="radio" name="q3" value="No puedo en esas fechas">No puedo en esas fechas</label>
+      </div>
+    </div>
+
+    <p class="err" id="err" role="alert"></p>
+    <div class="nav">
+      <button class="btn btn-soft" id="back">Atrás</button>
+      <button class="btn btn-main" id="next">Siguiente</button>
     </div>
   </section>
 
-  <section id="faq">
-    <h2>Preguntas frecuentes</h2>
-    <details><summary>¿Cuánto tiempo me lleva por semana?</summary><p>Cada ejercicio te lleva entre 15 y 20 minutos, más el encuentro en vivo del viernes.</p></details>
-    <details><summary>¿Y si no puedo conectarme a un Zoom?</summary><p>Te queda la grabación para verla cuando puedas.</p></details>
-    <details><summary>¿Necesito experiencia en ventas?</summary><p>No. Trabajamos tu identidad como vendedora, no técnicas. Sirve si recién empezás o si ya vendés y sentís que podrías más.</p></details>
-    <details><summary>¿Y si siento que todavía no estoy lista?</summary><p>Esa es justamente una de las voces que vamos a trabajar. La seguridad no llega antes de empezar: se construye haciendo.</p></details>
+  <!-- RESULTADO -->
+  <section class="screen" id="result" hidden style="display:flex;flex-direction:column;align-items:center;gap:18px">
+    <span class="badge" id="badge"></span>
+    <p class="sub" id="resTitle"></p>
+    <p class="res-text" id="resText"></p>
+    <div class="actions">
+      <a class="btn btn-main" id="formBtn" target="_blank" rel="noopener" hidden>Enviar mi postulación</a>
+      <a class="btn btn-soft" id="waBtn" target="_blank" rel="noopener" hidden>Escribirle a Yanina por WhatsApp</a>
+    </div>
+    <p class="note" id="resNote"></p>
+    <p class="sign">Carballo Yanina</p>
   </section>
-
-  <footer>
-    <p class="closing">Este desafío no cambia tu forma de vender. Cambia a la mujer que vende.</p>
-    <a class="cta js-pay" href="#sumate">Quiero mi lugar</a>
-    <div class="sign">Carballo Yanina</div>
-  </footer>
-</div>
+</main>
 
 <script>
-// Pegá acá tu link de pago de Mercado Pago (ej: https://mpago.la/xxxxxx)
-const MP_LINK = "https://mpago.la/1xiqjh1";
+// ====== CONFIGURACIÓN ======
+const LUGARES = "Solo 15 lugares";
+// Formulario de Google conectado a la planilla. Pegar acá el vínculo prellenado (ver instrucciones de Claude).
+const GOOGLE_FORM = {
+  base: "https://docs.google.com/forms/d/e/1FAIpQLScpxIEnCB_U2nwR592a38MW_6k77JtGfm5hkmlLbORlUNdimQ/viewform",
+  entries: {           // ids "entry.123456" de cada pregunta del formulario
+    nombre:"entry.340204713", whatsapp:"entry.1812603859", email:"entry.1892660893", rubro:"entry.545379690",
+    q1:"entry.1029449625", q2:"entry.1923825783", q3:"", resultado:"entry.2019902499"
+  }
+};
+const WHATSAPP_YANINA = "5493435000331";
 
-document.querySelectorAll('.js-pay').forEach(a => {
-  if (MP_LINK) { a.href = MP_LINK; a.target = "_blank"; a.rel = "noopener"; }
-  else if (a.id !== 'payBtn') { a.href = "#sumate"; }
-});
+const $ = s => document.querySelector(s);
+$("#spots").textContent = LUGARES;
+const data = {}; let step = 1;
 
-// Cuenta regresiva al cierre: domingo 18/10/2026 23:59 (Argentina, UTC-3)
-const close = new Date("2026-10-18T23:59:00-03:00").getTime();
-function tick(){
-  const d = Math.max(0, close - Date.now());
-  const pad = n => String(n).padStart(2,'0');
-  document.getElementById('cd').textContent = Math.floor(d/864e5);
-  document.getElementById('ch').textContent = pad(Math.floor(d/36e5)%24);
-  document.getElementById('cm').textContent = pad(Math.floor(d/6e4)%60);
-  if (d === 0) document.getElementById('count').innerHTML = '<div class="small">Inscripciones cerradas</div>';
+function show(id){ ["s0","form","result"].forEach(x => $("#"+x).hidden = x!==id); window.scrollTo(0,0) }
+function render(){
+  for(let i=1;i<=4;i++) $("#p"+i).hidden = i!==step;
+  document.querySelectorAll(".progress i").forEach((el,i)=>el.classList.toggle("on", i<step));
+  $("#stepN").textContent = "Paso "+step+" de 4";
+  $("#back").hidden = step===1;
+  $("#next").textContent = step===4 ? "Ver mi resultado" : "Siguiente";
+  $("#err").textContent = "";
 }
-tick(); setInterval(tick, 30000);
+const pick = n => (document.querySelector('input[name="'+n+'"]:checked')||{}).value;
 
-// Copiar alias
-const btn = document.getElementById('copyAlias');
-btn.addEventListener('click', () => {
-  const text = document.getElementById('alias').textContent;
-  const done = () => { btn.textContent = 'Copiado'; setTimeout(() => btn.textContent = 'Copiar', 2000); };
-  const select = () => { const r = document.createRange(); r.selectNodeContents(document.getElementById('alias')); const s = getSelection(); s.removeAllRanges(); s.addRange(r); btn.textContent = 'Seleccionado'; };
-  try { navigator.clipboard.writeText(text).then(done, select); } catch (e) { select(); }
-});
+function validate(){
+  if(step===1){
+    const v = k => $("#"+k).value.trim();
+    if(!v("nombre")) return "Escribí tu nombre.";
+    if(v("whatsapp").replace(/\D/g,"").length<8) return "Revisá tu WhatsApp: poné el número completo con código de área.";
+    if(!/^\S+@\S+\.\S+$/.test(v("email"))) return "Revisá tu email, parece incompleto.";
+    if(!v("rubro")) return "Contame a qué te dedicás.";
+    ["nombre","whatsapp","email","rubro"].forEach(k=>data[k]=v(k));
+  } else {
+    const q = "q"+(step-1), val = pick(q);
+    if(!val) return "Elegí una opción para seguir.";
+    data[q] = val;
+  }
+  return "";
+}
+
+$("#start").onclick = () => { show("form"); render(); $("#nombre").focus() };
+$("#back").onclick = () => { step--; render() };
+$("#next").onclick = () => {
+  const e = validate(); if(e){ $("#err").textContent = e; return }
+  if(step<4){ step++; render(); return }
+  finish();
+};
+
+function finish(){
+  const ok = data.q3==="Sí, me comprometo" && data.q2!=="No";
+  data.resultado = ok ? "Candidata" : "No califica";
+  const first = data.nombre.split(" ")[0];
+  show("result");
+  const b=$("#badge"); b.textContent = ok ? "Sos candidata" : "Postulación recibida"; b.className = "badge"+(ok?"":" alt");
+  $("#resTitle").textContent = ok ? first+", tenés el perfil para este desafío" : "Gracias, "+first;
+  $("#resText").textContent = ok
+    ? "Lo que respondiste me dice que lo que te frena no es tu producto, es la identidad desde la que vendés. Eso es exactamente lo que vamos a trabajar en estos 21 días."
+    : (data.q3!=="Sí, me comprometo"
+        ? "Esta vez las fechas no coinciden, y prefiero que entres cuando puedas aprovecharlo de verdad. Te aviso cuando abra la próxima edición."
+        : "Por lo que contás, hoy este desafío no es lo que más necesitás. Igual te aviso de mis próximas propuestas.");
+
+  const E = GOOGLE_FORM.entries;
+  const formReady = GOOGLE_FORM.base && E.nombre && E.whatsapp;
+  if(formReady){
+    const p = new URLSearchParams({usp:"pp_url"});
+    const vals = Object.assign({}, data);
+    if(!E.q3) vals.resultado = data.resultado+" · Compromiso: "+data.q3;
+    for(const [k,id] of Object.entries(E)) if(id) p.append(id, vals[k]||"");
+    const a=$("#formBtn"); a.href = GOOGLE_FORM.base+"?"+p.toString(); a.hidden=false;
+    $("#resNote").textContent = "Se abre tu postulación con todo completo. Tocá “Enviar” al final para confirmarla."+(ok?" Te escribo por WhatsApp antes del viernes 13/11 con tu invitación.":"");
+  } else {
+    $("#resNote").textContent = "El envío todavía no está activado.";
+  }
+  if(WHATSAPP_YANINA){
+    const msg = "Hola Yanina! Me postulé al Desafío Identidad de Vendedora. Soy "+data.nombre+" ("+data.rubro+").";
+    const w=$("#waBtn"); w.href="https://wa.me/"+WHATSAPP_YANINA+"?text="+encodeURIComponent(msg); w.hidden=false;
+  }
+}
 </script>
-</body></html>
+</body>
+</html>
